@@ -1,0 +1,33 @@
+{
+  "name": "express-logging-utility",
+  "version": "1.0.0",
+  "description": "A node-express middleware which creates a unique transaction id for each request. This unique transaction id can be retrieved anywhere in the request process and can be injected into the logs. Thus helps to identify the logs for each request uniquely. It also helps to create and retrieve variables for each request context individually.",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && npm i && tslint --fix --project . && tsc --declaration --project ."
+  },
+  "keywords": [
+    "node",
+    "express",
+    "logging",
+    "transaction",
+    "unique",
+    "id",
+    "async-hooks",
+    "Nest.js",
+    "winston",
+    "bunyan"
+  ],
+  "author": "Sai Chandesh Gurramkonda",
+  "license": "ISC",
+  "dependencies": {
+    "ts-polyfill": "3.0.1",
+    "uuid": "3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "10.5.6",
+    "tslint": "5.11.0",
+    "typescript": "3.0.1"
+  }
+}
