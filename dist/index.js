@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var UUID = require("uuid/v4");
 require("ts-polyfill/lib/es2015-collection");
 var async_hooks_1 = require("./async-hooks");
@@ -10,11 +9,15 @@ var ExpressLoggingUtilityMiddleware = function (req, res, next) {
     });
     next();
 };
-exports.set = function (key, value) {
+var set = function (key, value) {
     return async_hooks_1.setSharedVariable(key, value);
 };
-exports.get = function (key) {
+var get = function (key) {
     return async_hooks_1.getSharedVariable(key);
 };
-exports.default = ExpressLoggingUtilityMiddleware;
+module.exports = {
+    set: set,
+    get: get,
+    middleware: ExpressLoggingUtilityMiddleware,
+};
 //# sourceMappingURL=index.js.map

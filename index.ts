@@ -26,7 +26,7 @@ const ExpressLoggingUtilityMiddleware = (req, res, next) => {
  * @param {any} key Variable name
  * @param {any} value variable value
  */
-export const set = (key: any, value: any) => {
+const set = (key: any, value: any) => {
     return setSharedVariable(key, value);
 };
 
@@ -34,8 +34,12 @@ export const set = (key: any, value: any) => {
  * Get variables related to current context
  * @param {any} key Name of the variable to be retrieved
  */
-export const get = (key: any) => {
+const get = (key: any) => {
     return getSharedVariable(key);
 };
 
-export default ExpressLoggingUtilityMiddleware;
+export = {
+    set,
+    get,
+    middleware: ExpressLoggingUtilityMiddleware,
+};

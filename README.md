@@ -30,13 +30,13 @@ const express = require('express')
 const app = express();
 
 // Express logging utility
-const ExpressLoggingUtility = require('express-logging-utility');
+const { middleware, get } = require('express-logging-utility');
 
-app.use(ExpressLoggingUtility); // Inject express logging utility middleware
+app.use(middleware); // Inject express logging utility middleware
 
 app.get('/', (req, res) => {
     // Get unique logging transaction id
-    const loggingId = ExpressLoggingUtility.get('loggingId'); 
+    const loggingId = get('loggingId'); 
     console.log(`Request logging id : ${loggingId}`);
     res.send('Hello World!')
 })
@@ -50,15 +50,15 @@ const express = require('express')
 const app = express();
 
 // Express logging utility
-const ExpressLoggingUtility = require('express-logging-utility');
+const { middleware, set } = require('express-logging-utility');
 
 const service = require('./service');
 
-app.use(ExpressLoggingUtility); // Inject express logging utility middleware
+app.use(middleware); // Inject express logging utility middleware
 
 app.get('/', (req, res) => {
     // Set test variable
-    ExpressLoggingUtility.set('test', 'testing_purpose');
+    set('test', 'testing_purpose');
     res.send(service());
 })
 
@@ -67,11 +67,11 @@ app.listen(3000, () => console.log('Example app listening on port 3000!'))
 In `service.js`
 ```
 // Express logging utility
-const ExpressLoggingUtility = require('express-logging-utility');
+const { get } = require('express-logging-utility');
 
 module.exports = () => {
     // Get test variable
-    const test = ExpressLoggingUtility.get('test'); 
+    const test = get('test'); 
     console.log(`test : ${test}`);
     return 'hello world'
 }
@@ -85,14 +85,14 @@ In `main.ts`
 ```
 import { NestFactory } from '@nestjs/core';
 // Express logging utility
-import * as ExpressLoggingUtility from 'express-logging-utility';
+import { middleware } from 'express-logging-utility';
 
 // Your application module
 import { ApplicationModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(ApplicationModule);
-  app.use(ExpressLoggingUtility); // Inject express logging utility middleware
+  app.use(middleware); // Inject express logging utility middleware
   await app.listen(3000);
 }
 bootstrap();
@@ -119,14 +119,14 @@ In `main.ts`
 ```
 import { NestFactory } from '@nestjs/core';
 // Express logging utility
-import * as ExpressLoggingUtility from 'express-logging-utility';
+import { middleware } from 'express-logging-utility';
 
 // Your application module
 import { ApplicationModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(ApplicationModule);
-  app.use(ExpressLoggingUtility); // Inject express logging utility middleware
+  app.use(middleware); // Inject express logging utility middleware
   await app.listen(3000);
 }
 bootstrap();
