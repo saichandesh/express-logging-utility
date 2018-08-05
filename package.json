@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A node-express middleware which creates a unique transaction id for each request. This unique transaction id can be retrieved anywhere in the request process and can be injected into the logs. Thus helps to identify the logs for each request uniquely. It also helps to create and retrieve variables for each request context individually.",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "npm run clean && npm i && tslint --fix --project . && tsc --declaration --project ."
@@ -20,7 +21,7 @@
     "bunyan"
   ],
   "author": "Sai Chandesh Gurramkonda",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "ts-polyfill": "3.0.1",
     "uuid": "3.3.2"
