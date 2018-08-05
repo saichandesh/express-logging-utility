@@ -1,9 +1,13 @@
 {
   "name": "express-logging-utility",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A node-express middleware which creates a unique transaction id for each request. This unique transaction id can be retrieved anywhere in the request process and can be injected into the logs. Thus helps to identify the logs for each request uniquely. It also helps to create and retrieve variables for each request context individually.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saichandesh/express-logging-utility.git"
+  },
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "npm run clean && npm i && tslint --fix --project . && tsc --declaration --project ."
